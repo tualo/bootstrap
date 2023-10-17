@@ -52,7 +52,7 @@ Ext.define('Tualo.bootstrap.commands.Compiler', {
       let me = this;
       me.getComponent('syncform').hide();
       me.getComponent('waitpanel').show();
-      let res= await Tualo.Fetch.post('./bootstrap/compiler',{      });
+      let res= await (await fetch('./bootstrap/compiler' )).json();
       if (res.success !== true){
         Ext.toast({
             html: res.msg,
