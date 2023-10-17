@@ -29,6 +29,10 @@ class PublicRoute implements IRoute{
                 App::etagFile( $dir.''.$matches['file'] , true);
                 BasicRoute::$finished = true;
                 http_response_code(200);
+            }else if (file_exists( dirname(__DIR__,2).'/lib/'.$matches['file']) ){
+                App::etagFile( dirname(__DIR__,2).'/lib/'.$matches['file'] , true);
+                BasicRoute::$finished = true;
+                http_response_code(200);
             }
         },['get'],false);
     }
