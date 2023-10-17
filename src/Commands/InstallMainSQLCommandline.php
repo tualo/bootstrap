@@ -45,6 +45,7 @@ class InstallMainSQLCommandline implements ICommandline{
 
         $files = [
             'install/ddl' => 'setup ddl',
+            'install/addcommand' => 'setup addcommand',
             'install/getbootstrap_scss' => 'setup getbootstrap_scss',
             'install/getbootstrap_scss.ds' => 'setup getbootstrap_scss.ds'
         ];
