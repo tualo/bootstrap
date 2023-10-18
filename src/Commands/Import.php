@@ -43,23 +43,13 @@ class Import implements ICommandline{
     }
 
     public static function run(Args $args){
-        $files = [
-            // 'CMS.menu' => 'setup CMS.menu'
-        ];
+        $installSQL = function( ){
 
-        foreach($files as $file=>$msg){
-            $installSQL = function(string $file){
-
-                ImportSCSS::import(false,App::get('clientDB'));
-//                $res = App::get('clientDB')->direct('select * from getbootstrap_scss');
-                PostCheck::formatPrintLn(['green'],'done');
-            };
-            $clientName = $args->getOpt('client');
-            if( is_null($clientName) ) $clientName = '';
-            self::setupClients($msg,$clientName,$file,$installSQL);
-        }
-
-
-
+            ImportSCSS::import(false,App::get('clientDB'));
+            PostCheck::formatPrintLn(['green'],'done');
+        };
+        $clientName = $args->getOpt('client');
+        if( is_null($clientName) ) $clientName = '';
+        self::setupClients("",$clientName,"",$installSQL);
     }
 }
