@@ -46,7 +46,6 @@ class Import implements ICommandline{
         $installSQL = function( ){
 
             ImportSCSS::import(false,App::get('clientDB'));
-            PostCheck::formatPrintLn(['green'],'done');
         };
         $clientName = $args->getOpt('client');
         if( is_null($clientName) ) $clientName = '';
