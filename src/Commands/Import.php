@@ -16,7 +16,8 @@ class Import implements ICommandline{
     public static function setup(Cli $cli){
         $cli->command(self::getCommandName())
             ->description('import basic bootstrap scss files')
-            ->opt('client', 'only use this client', true, 'string');
+            ->opt('client', 'only use this client', true, 'string')
+            ->opt('force', 'force import', false, 'boolean');
             
     }
 
@@ -44,8 +45,8 @@ class Import implements ICommandline{
 
     public static function run(Args $args){
         $installSQL = function( ){
-
-            ImportSCSS::import(false,App::get('clientDB'));
+            global $args;
+            ImportSCSS::import($args->getOpt('force'),App::get('clientDB'));
         };
         $clientName = $args->getOpt('client');
         if( is_null($clientName) ) $clientName = '';
