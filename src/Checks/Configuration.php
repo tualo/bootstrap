@@ -20,7 +20,7 @@ class Configuration  extends PostCheck {
             if ($return_var!=0){
                 PostCheck::formatPrintLn(['red'],"\tscss cmd *$cmd* is not callable ($return_var), try `npm install -g sass`");
             }else{
-                PostCheck::formatPrintLn(['green'],"\tscss version: ".implode(' ',));
+                PostCheck::formatPrintLn(['green'],"\tscss version: ".implode(' ',$output));
             }
         }
 
