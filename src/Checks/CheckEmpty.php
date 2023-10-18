@@ -11,8 +11,11 @@ class CheckEmpty  extends PostCheck {
     public static function test(array $config){
         $clientdb = App::get('clientDB');
         if (is_null($clientdb)) return;
-        
-        $res = App::get('clientDB')->direct('select * from getbootstrap_scss');
+        try{
+            $res = App::get('clientDB')->direct('select * from getbootstrap_scss');
+        }catch(\Exception $e){
+            $res = [];
+        }
         if (count($res)==0){
             PostCheck::formatPrintLn(['red'],'bootstrap_scss is empty');
             PostCheck::formatPrintLn(['blue'],'please run the following command: `./tm import-bootstrap-scss --client '.$clientdb->dbname.'`');
