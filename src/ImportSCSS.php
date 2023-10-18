@@ -18,8 +18,8 @@ class ImportSCSS {
         return $result;
     }
 
-    public static function import(bool $replace=false){
-        $db = App::get('session')->getDB();
+    public static function import(bool $replace=false, mixed $db=null){
+        if (is_null($db)) $db = App::get('session')->getDB();
         $files = self::rglob((__DIR__).'/scss/*',GLOB_NOSORT|GLOB_BRACE);
         $files = array_map(function($file){
             $file = str_replace((__DIR__).'/scss/','',$file);
