@@ -1,5 +1,5 @@
 <?php
-namespace Tualo\Office\DS\Checks;
+namespace Tualo\Office\Bootstrap\Checks;
 
 use Tualo\Office\Basic\Middleware\Session;
 use Tualo\Office\Basic\PostCheck;
