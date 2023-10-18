@@ -46,7 +46,7 @@ class Import implements ICommandline{
     public static function run(Args $args){
         $installSQL = function( ){
             global $args;
-            ImportSCSS::import($args->getOpt('force'),App::get('clientDB'));
+            ImportSCSS::import($args->getOpt('force',false),App::get('clientDB'));
         };
         $clientName = $args->getOpt('client');
         if( is_null($clientName) ) $clientName = '';
