@@ -1,0 +1,27 @@
+header {
+    margin-top: calc(1*var(--container-fluid-margin-top))
+}
+
+header>div>div>*>a>img {
+    height: 100%;
+    max-height: 2cm;
+    object-fit: contain;
+    object-position: 0px 50%;
+    width: 100%
+}
+
+header>div>div>div.col.text-end>a {
+    --bs-btn-bg: #ccc
+}
+
+header>div>div>div.text-end>div>div>a>i {
+    color: var(--bs-primary)
+}
+
+header>div>div>div.text-end>div>div>a>i>span {
+    font-family: var(--bs-font-sans-serif)
+}
+
+header>div>div>div:nth-child(2)>a>img {
+    object-position: 50% 50%
+}
