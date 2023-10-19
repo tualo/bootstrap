@@ -1,0 +1,18 @@
+$body-bg: #fff;
+$body-color: #111;
+
+$primary: rgb(100,100,200);
+$success: rgb(180,240,180);
+// $primary:       $blue !default;
+// $secondary:     $gray-600 !default;
+// $success:       $green !default;
+// $info:          $cyan !default;
+// $warning:       $yellow !default;
+// $danger:        $red !default;
+// $light:         $gray-100 !default;
+// $dark:          $gray-900 !default;
+
+
+@import "bootstrap";
+@import "_onlinevote.checkbox";
+@import "onlinevote.page.header";

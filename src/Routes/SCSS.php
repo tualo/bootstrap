@@ -36,7 +36,10 @@ class SCSS implements IRoute{
             if (!is_dir(dirname($resfilename))){
                 mkdir(dirname($resfilename),0777,true);
             }
-            exec($cmd.' '.App::get('tempPath').'/scss/bootstrap.scss'.' '.$resfilename,$return,$res_code);
+
+            $entryPoint = App::get('tempPath').'/scss/bootstrap.scss';
+            if (file_exists(App::get('tempPath').'/scss/index.scss')) $entryPoint = App::get('tempPath').'/scss/index.scss';
+            exec($cmd.' '.$entryPoint.' '.$resfilename,$return,$res_code);
             if ($res_code!=0){
                 throw new \Exception('scss compile error');
             }else{
