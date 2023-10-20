@@ -1,0 +1,12 @@
+body{
+    counter-reset: checkbox-counter;
+}
+
+input.circle-checkbox[type="checkbox"]:checked{
+    counter-increment: checkbox-counter;
+}
+
+.countchecked:after{
+    content: counter(checkbox-counter);
+    display: inline;
+}

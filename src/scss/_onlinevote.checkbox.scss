@@ -1,7 +1,13 @@
+body{
+    counter-reset: checkbox-counter;
+}
+
 .hint-circle-checkbox[type="checkbox"] {
     display: none;
     opacity: 0
 }
+
+
 
 .hint-circle-checkbox[type="checkbox"]+label div div:nth-child(1) {
     border: 1px solid var(--bs-primary);
@@ -13,6 +19,17 @@
     width: 3.3rem
 }
 
+:root {
+  --light: 80;
+  /* the threshold at which colors are considered "light." Range: integers from 0 to 100, recommended 50 - 70 */
+  --threshold: 60;
+}
+    
+.bg-primary .hint-circle-checkbox[type=checkbox]+label div div:nth-child(1) {
+    --switch: calc((var(--light) - var(--threshold)) * -100%);
+    border: 1px solid hsl(0, 0%, var(--switch));
+}
+
 .hint-circle-checkbox[type="checkbox"]+label div div:nth-child(1) i {
     color: var(--bs-primary-bg-subtle);
     display: inline-block;
@@ -20,8 +37,15 @@
     margin-left: -0.1em;
 }
 
+
 .hint-circle-checkbox[type="checkbox"]:checked+label div div:nth-child(1) i {
-    color: var(--bs-primary)
+    color: var(--bs-primary);
+}
+
+
+.bg-primary .hint-circle-checkbox[type="checkbox"]:checked+label div div:nth-child(1) i {
+    --switch: calc((var(--light) - var(--threshold)) * -100%);
+    color: hsl(0, 0%, var(--switch));
 }
 
 .hint-circle-checkbox[type="checkbox"]:checked~.formbox {
@@ -56,9 +80,21 @@
 }
 
 .circle-checkbox[type="checkbox"]:checked+label div i {
+    counter-increment: checkbox-counter;
     color: var(--bs-primary)
 }
 
 .circle-checkbox[type="checkbox"]:checked:disabled+label div i {
+    counter-increment: checkbox-counter;
     color: var(--bs-secondary-text)
+}
+
+.tablecolumn_ballotpaper_check{
+    max-width:  3.2rem
+}
+
+
+.countchecked:after{
+    content: " " counter(checkbox-counter) " ";
+    display: inline;
 }

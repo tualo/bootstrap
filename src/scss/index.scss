@@ -13,6 +13,20 @@ $success: rgb(180,240,180);
 // $dark:          $gray-900 !default;
 
 
+$border-radius:               .1rem;
+/*
+$border-radius-sm:            .25rem !default;
+$border-radius-lg:            .5rem !default;
+$border-radius-xl:            1rem !default;
+$border-radius-xxl:           2rem !default;
+$border-radius-pill:          50rem !default;
+*/
+
 @import "bootstrap";
 @import "_onlinevote.checkbox";
 @import "onlinevote.page.header";
+@import "onlinevote-portrait";
+
+div.row{
+    margin-bottom: 1em;
+}
