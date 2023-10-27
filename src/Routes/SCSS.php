@@ -17,6 +17,14 @@ class SCSS implements IRoute{
             App::result('success', true);
         },['get'],true);
 
+
+        BasicRoute::add('/bootstrap/replaceimport'.'',function($matches){
+            App::contenttype('application/json');
+            ImportSCSS::import(true);
+            App::result('success', true);
+        },['get'],true);
+
+
         BasicRoute::add('/bootstrap/compile'.'',function($matches){
             App::contenttype('application/json');
 
