@@ -54,12 +54,21 @@ Ext.define('Tualo.bootstrap.commands.Compiler', {
       me.getComponent('waitpanel').show();
       let res= await (await fetch('./bootstrap/compile' )).json();
       if (res.success !== true){
-        Ext.toast({
-            html: res.msg,
-            title: 'Fehler',
-            align: 't',
-            iconCls: 'fa fa-warning'
-        });
+        if (res.return){
+          Ext.toast({
+              html: res.return.join('<br>'),
+              title: 'Fehler',
+              align: 't',
+              iconCls: 'fa fa-warning'
+          });
+        }else{
+          Ext.toast({
+              html: res.msg,
+              title: 'Fehler',
+              align: 't',
+              iconCls: 'fa fa-warning'
+          });
+        }
       }
       return res;
     }
