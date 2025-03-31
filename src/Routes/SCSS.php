@@ -44,6 +44,7 @@ class SCSS implements IRoute
                 }
                 file_put_contents($filename, $row['content']);
             }
+
             $resfilename = App::get('basePath') . '/scss_build/bootstrap.css';
             if (!is_dir(dirname($resfilename))) {
                 mkdir(dirname($resfilename), 0777, true);
