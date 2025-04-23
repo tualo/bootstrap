@@ -38,7 +38,7 @@ class PublicRoute implements IRoute
         BasicRoute::add('/tualocms/page/bootstrapbuild/(?P<file>[\/.\w\d\-\_\.]+)' . '', function ($matches) {
             $dir = Path::join(App::get('basePath'), 'scss_build');
             if (file_exists(Path::join($dir, $matches['file']))) {
-                App::etagFile($dir . '' . $matches['file'], true);
+                App::etagFile(Path::join($dir, $matches['file']), true);
                 BasicRoute::$finished = true;
                 http_response_code(200);
             } else if (file_exists(Path::join(dirname(__DIR__, 2), 'lib', $matches['file']))) {
