@@ -8,7 +8,7 @@ use Tualo\Office\Basic\IRoute;
 use Tualo\Office\Bootstrap\ImportSCSS;
 use MatthiasMullie\Minify\CSS;
 
-class SCSS implements IRoute
+class SCSS extends \Tualo\Office\Basic\RouteWrapper
 {
 
 
