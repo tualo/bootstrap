@@ -93,7 +93,7 @@ class PublicRoute extends \Tualo\Office\Basic\RouteWrapper
                 'woff' => 'font/woff',
                 'woff2' => 'font/woff2'
             ];
-            $requestedFile = $matches['path'];
+            $requestedFile = $matches['file'];
 
             SystemFile::deliverFile($requestedFile, function () use ($matches, $dir, $libDir, $allowed) {
                 $filePath = Path::join($dir, $matches['file']); // zuerst im Build-Verzeichnis suchen
