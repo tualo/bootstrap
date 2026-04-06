@@ -7,6 +7,7 @@ use Tualo\Office\Basic\Route as BasicRoute;
 use Tualo\Office\Basic\IRoute;
 use Tualo\Office\Bootstrap\ImportSCSS;
 use MatthiasMullie\Minify\CSS;
+use Tualo\Office\SystemFiles\SystemFile;
 
 class SCSS extends \Tualo\Office\Basic\RouteWrapper
 {
@@ -62,6 +63,8 @@ class SCSS extends \Tualo\Office\Basic\RouteWrapper
             $minifier = new CSS($resfilename);
             $resfilename = App::get('basePath') . '/scss_build/bootstrap.min.css';
             $minifier->minify($resfilename);
+
+            SystemFile::removeSystemFileByPackage('bootstrap');
 
             App::result('success', true);
         }, ['get'], true);

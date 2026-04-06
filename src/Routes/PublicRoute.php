@@ -109,7 +109,7 @@ class PublicRoute extends \Tualo\Office\Basic\RouteWrapper
                     return new SystemFileCallbackResult(false);
                 }
                 return new SystemFileCallbackResult(true, file_get_contents($filePath), $allowed[$extension] ?? 'application/octet-stream');
-            });
+            }, 'bootstrap');
             // }
         }, ['get'], false);
     }
